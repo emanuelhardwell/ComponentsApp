@@ -12,10 +12,21 @@ interface MenuItemProps {
 export const MenuItem: FC<MenuItemProps> = ({name, icon, component}) => {
   return (
     <Pressable onPress={() => console.log('Tap !!')}>
-      <View style={{...styles.container}}>
-        <IonicIcon name={icon} size={25} color={colors.primary} />
-        <Text> {name} </Text>
-        <IonicIcon name="chevron-forward-outline" size={25} />
+      <View
+        style={{...styles.container, backgroundColor: colors.cardBackground}}>
+        <IonicIcon
+          name={icon}
+          size={25}
+          color={colors.primary}
+          style={{marginRight: 10}}
+        />
+        <Text style={{color: colors.text}}> {name} </Text>
+        <IonicIcon
+          name="chevron-forward-outline"
+          size={25}
+          //   color={colors.primary}
+          style={{marginLeft: 'auto', color: colors.primary}}
+        />
       </View>
     </Pressable>
   );
