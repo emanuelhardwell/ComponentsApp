@@ -1,6 +1,7 @@
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {globalStyles} from '../../../config/theme/theme';
 import {Title} from '../../components/ui/Title';
+import {MenuItem} from '../../components/ui/MenuItem';
 
 export const menuItems = [
   // 01-animationMenuItems
@@ -70,6 +71,16 @@ export const HomeScreen = () => {
     <View style={globalStyles.mainContainer}>
       <View style={globalStyles.globalMargin}>
         <Title text="HomeScreen" />
+        <ScrollView>
+          {menuItems.map(menu => (
+            <MenuItem
+              name={menu.name}
+              icon={menu.icon}
+              component={menu.component}
+              key={menu.name}
+            />
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
