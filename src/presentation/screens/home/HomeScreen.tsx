@@ -1,4 +1,6 @@
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import {globalStyles} from '../../../config/theme/theme';
+import {Title} from '../../components/ui/Title';
 
 export const menuItems = [
   // 01-animationMenuItems
@@ -65,9 +67,9 @@ export const menuItems = [
 
 export const HomeScreen = () => {
   return (
-    <View>
-      <View>
-        <Text>HomeScreen</Text>
+    <View style={globalStyles.mainContainer}>
+      <View style={globalStyles.globalMargin}>
+        <Title text="HomeScreen" />
       </View>
     </View>
   );
