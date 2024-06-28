@@ -3,7 +3,7 @@ import {globalStyles} from '../../../config/theme/theme';
 import {Title} from '../../components/ui/Title';
 import {MenuItem} from '../../components/ui/MenuItem';
 
-export const menuItems = [
+export const animationMenuItems = [
   // 01-animationMenuItems
   {
     name: 'Animation 101',
@@ -15,7 +15,9 @@ export const menuItems = [
     icon: 'albums-outline',
     component: 'Animation102Screen',
   },
+];
 
+export const menuItems = [
   // 02-menuItems
   {
     name: 'Pull to refresh',
@@ -47,7 +49,9 @@ export const menuItems = [
     icon: 'flask-outline',
     component: 'ChangeThemeScreen',
   },
+];
 
+export const uiMenuItems = [
   // 03- uiMenuItems
   {
     name: 'Switches',
@@ -68,18 +72,43 @@ export const menuItems = [
 
 export const HomeScreen = () => {
   return (
-    <View style={globalStyles.mainContainer}>
+    <View style={[globalStyles.mainContainer]}>
       <View style={globalStyles.globalMargin}>
-        <Title text="HomeScreen" />
         <ScrollView>
-          {menuItems.map(menu => (
+          <Title text="Menú" safe />
+
+          {animationMenuItems.map((menu, index) => (
             <MenuItem
-              name={menu.name}
-              icon={menu.icon}
-              component={menu.component}
+              {...menu}
               key={menu.name}
+              isFirst={index === 0}
+              isLast={index === animationMenuItems.length - 1}
             />
           ))}
+
+          <View style={{marginTop: 30}} />
+
+          {menuItems.map((menu, index) => (
+            <MenuItem
+              {...menu}
+              key={menu.name}
+              isFirst={index === 0}
+              isLast={index === menuItems.length - 1}
+            />
+          ))}
+
+          <View style={{marginTop: 30}} />
+
+          {uiMenuItems.map((menu, index) => (
+            <MenuItem
+              {...menu}
+              key={menu.name}
+              isFirst={index === 0}
+              isLast={index === uiMenuItems.length - 1}
+            />
+          ))}
+
+          <View style={{marginTop: 30}} />
         </ScrollView>
       </View>
     </View>
