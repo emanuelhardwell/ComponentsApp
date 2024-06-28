@@ -7,13 +7,35 @@ interface MenuItemProps {
   name: string;
   icon: string;
   component: string;
+
+  isFirst?: boolean;
+  isLast?: boolean;
 }
 
-export const MenuItem: FC<MenuItemProps> = ({name, icon, component}) => {
+export const MenuItem: FC<MenuItemProps> = ({
+  name,
+  icon,
+  component,
+  isFirst = false,
+  isLast = false,
+}) => {
   return (
     <Pressable onPress={() => console.log('Tap !!')}>
       <View
-        style={{...styles.container, backgroundColor: colors.cardBackground}}>
+        style={{
+          ...styles.container,
+          backgroundColor: colors.cardBackground,
+          ...(isFirst && {
+            borderTopLeftRadius: 10,
+            borderTopRightRadius: 10,
+            paddingTop: 10,
+          }),
+          ...(isLast && {
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10,
+            paddingBottom: 10,
+          }),
+        }}>
         <IonicIcon
           name={icon}
           size={25}
