@@ -2,6 +2,7 @@ import {FC} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../../config/theme/theme';
+import {useNavigation} from '@react-navigation/native';
 
 interface MenuItemProps {
   name: string;
@@ -19,8 +20,10 @@ export const MenuItem: FC<MenuItemProps> = ({
   isFirst = false,
   isLast = false,
 }) => {
+  const navigation = useNavigation<any>();
+
   return (
-    <Pressable onPress={() => console.log('Tap !!')}>
+    <Pressable onPress={() => navigation.navigate(component)}>
       <View
         style={{
           ...styles.container,
