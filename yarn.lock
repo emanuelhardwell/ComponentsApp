@@ -3135,6 +3135,7 @@ __metadata:
     react: 18.2.0
     react-native: 0.74.2
     react-native-gesture-handler: ^2.17.1
+    react-native-prompt-android: ^1.1.0
     react-native-safe-area-context: ^4.10.5
     react-native-screens: ^3.32.0
     react-native-vector-icons: ^10.1.0
@@ -8178,6 +8179,13 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 70da4fc51d92899591aadf03396a8e0b78223fbe71da5b10e76232058c1ef5943d54c1dd8da815d5b6a8b41f259ea9d50457680e2ef7878c88d7396771170ae3
+  languageName: node
+  linkType: hard
+
+"react-native-prompt-android@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "react-native-prompt-android@npm:1.1.0"
+  checksum: 7923c0e972c0eb3e69da5cddf0f944d52d71119f686ba0988a2cb1eee58ca576e49fa1298f9df65b2d0302315497d2a32a64aaaf36e5e3dd760017ab63eea97c
   languageName: node
   linkType: hard
 
