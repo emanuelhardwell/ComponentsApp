@@ -3,6 +3,7 @@ import {CustomView} from '../../components/ui/CustomView';
 import {globalStyles} from '../../../config/theme/theme';
 import {Button} from '../../components/ui/Button';
 import {Title} from '../../components/ui/Title';
+import {showPrompt} from '../../../config/adapters/prompt.adapter';
 
 export const AlertScreen = () => {
   const createTwoButtonAlert = () =>
@@ -34,16 +35,20 @@ export const AlertScreen = () => {
       {cancelable: true, onDismiss: () => console.log('onDismiss')},
     );
 
-  // No funciona en Android
-  const showPrompt = () =>
-    Alert.prompt(
-      'title prompt',
-      'message prompt',
-      (value: string) => console.log('Prompt' + value),
-      'secure-text',
-      'default',
-      'number-pad',
-    );
+  const onShowPrompt = () => {
+    showPrompt({title: 'Igrese su número', typeAndroid: 'phone-pad'});
+
+    // No funciona en Android
+    //   codigo nativo
+    // Alert.prompt(
+    //   'title prompt',
+    //   'message prompt',
+    //   (value: string) => console.log('Prompt' + value),
+    //   'secure-text',
+    //   'default',
+    //   'number-pad',
+    // );
+  };
 
   return (
     <CustomView style={globalStyles.globalMargin}>
@@ -54,7 +59,7 @@ export const AlertScreen = () => {
       <View style={{height: 15}} />
       <Button text={'3-Button Alert'} onPress={createThreeButtonAlert} />
       <View style={{height: 15}} />
-      <Button text={'Show Prompt'} onPress={showPrompt} />
+      <Button text={'Show Prompt'} onPress={onShowPrompt} />
     </CustomView>
   );
 };
