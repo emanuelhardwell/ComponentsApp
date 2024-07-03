@@ -1,4 +1,11 @@
-import {Text, TextInput, View} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import {CustomView} from '../../components/ui/CustomView';
 import {globalStyles} from '../../../config/theme/theme';
 import {Title} from '../../components/ui/Title';
@@ -12,46 +19,69 @@ export const TextInputScreen = () => {
     number: '',
   });
 
+  /*  Si tenemos un input hasta abajo y necesitamos escribir en el, agregaremos
+   un ScrollView para que se vea mientras escribimos con el teclado */
+
+  // En IOS no funciona igual que android, es por eso que necesitamos envolverlo en un KeyboardAvoidingView
+
   return (
-    <CustomView style={globalStyles.globalMargin}>
-      <Title text="TextInputScreen" safe />
-      <Card>
-        {/* TextInput por defecto no trae ningun estilo */}
-        <TextInput
-          style={globalStyles.input}
-          placeholder="Nombre"
-          autoCapitalize="words"
-          autoCorrect={false}
-          onChangeText={value => setForm({...form, name: value})}
-        />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <ScrollView>
+        <CustomView style={globalStyles.globalMargin}>
+          <Title text="TextInputScreen" safe />
+          <Card>
+            {/* TextInput por defecto no trae ningun estilo */}
+            <TextInput
+              style={globalStyles.input}
+              placeholder="Nombre"
+              autoCapitalize="words"
+              autoCorrect={false}
+              onChangeText={value => setForm({...form, name: value})}
+            />
 
-        <TextInput
-          style={globalStyles.input}
-          placeholder="Email"
-          autoCapitalize="words"
-          autoCorrect={false}
-          keyboardType="email-address"
-          onChangeText={value => setForm({...form, email: value})}
-        />
+            <TextInput
+              style={globalStyles.input}
+              placeholder="Email"
+              autoCapitalize="words"
+              autoCorrect={false}
+              keyboardType="email-address"
+              onChangeText={value => setForm({...form, email: value})}
+            />
 
-        <TextInput
-          style={globalStyles.input}
-          placeholder="Number phone"
-          autoCapitalize="words"
-          autoCorrect={false}
-          keyboardType="phone-pad"
-          onChangeText={value => setForm({...form, number: value})}
-        />
-      </Card>
+            <TextInput
+              style={globalStyles.input}
+              placeholder="Number phone"
+              autoCapitalize="words"
+              autoCorrect={false}
+              keyboardType="phone-pad"
+              onChangeText={value => setForm({...form, number: value})}
+            />
+          </Card>
 
-      <View style={{marginVertical: 10}} />
+          <View style={{marginVertical: 10}} />
 
-      <Card>
-        <Text>{JSON.stringify(form, null, 2)}</Text>
-        <Text>{JSON.stringify(form, null, 2)}</Text>
-        <Text>{JSON.stringify(form, null, 2)}</Text>
-        <Text>{JSON.stringify(form, null, 2)}</Text>
-      </Card>
-    </CustomView>
+          <Card>
+            <Text>{JSON.stringify(form, null, 2)}</Text>
+            <Text>{JSON.stringify(form, null, 2)}</Text>
+            <Text>{JSON.stringify(form, null, 2)}</Text>
+            <Text>{JSON.stringify(form, null, 2)}</Text>
+          </Card>
+
+          <View style={{marginVertical: 5}} />
+
+          <Card>
+            <TextInput
+              style={globalStyles.input}
+              placeholder="Number phone"
+              autoCapitalize="words"
+              autoCorrect={false}
+              keyboardType="phone-pad"
+              onChangeText={value => setForm({...form, number: value})}
+            />
+          </Card>
+        </CustomView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
