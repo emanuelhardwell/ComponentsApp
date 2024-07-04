@@ -35,6 +35,11 @@ export const menuItems = [
     component: 'ModalScreen',
   },
   {
+    name: 'Modal Small',
+    icon: 'copy-outline',
+    component: 'ModalSmallScreen',
+  },
+  {
     name: 'InfiniteScroll',
     icon: 'download-outline',
     component: 'InfiniteScrollScreen',
