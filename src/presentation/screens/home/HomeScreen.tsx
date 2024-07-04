@@ -45,6 +45,11 @@ export const menuItems = [
     component: 'InfiniteScrollScreen',
   },
   {
+    name: 'InfiniteScroll Async images',
+    icon: 'download-outline',
+    component: 'InfiniteScrollAsyncScreen',
+  },
+  {
     name: 'Slides',
     icon: 'flower-outline',
     component: 'SlidesScreen',

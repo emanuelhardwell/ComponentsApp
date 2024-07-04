@@ -10,6 +10,7 @@ import {CustomSectionListScreen} from '../screens/lists/CustomSectionListScreen'
 import {ModalScreen} from '../screens/modal/ModalScreen';
 import {ModalSmallScreen} from '../screens/modal/ModalSmallScreen';
 import {InfiniteScrollScreen} from '../screens/infinite-scroll/InfiniteScrollScreen';
+import {InfiniteScrollAsyncScreen} from '../screens/infinite-scroll/InfiniteScrollAsyncScreen';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,10 @@ export const StackNavigator = () => {
       <Stack.Screen
         name="InfiniteScrollScreen"
         component={InfiniteScrollScreen}
+      />
+      <Stack.Screen
+        name="InfiniteScrollAsyncScreen"
+        component={InfiniteScrollAsyncScreen}
       />
     </Stack.Navigator>
   );
