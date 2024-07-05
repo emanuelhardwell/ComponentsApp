@@ -1,6 +1,7 @@
-import {ActivityIndicator, FlatList, Image, View} from 'react-native';
+import {ActivityIndicator, FlatList, View} from 'react-native';
 import {Title} from '../../components/ui/Title';
 import {FC, useState} from 'react';
+import {FadeInImage} from '../../components/ui/FadeInImage';
 
 export const InfiniteScrollAsyncScreen = () => {
   const [numbers, setNumbers] = useState<number[]>([0, 1, 2, 3, 4, 5]);
@@ -37,8 +38,12 @@ interface RenderItemProps {
 const RenderItem: FC<RenderItemProps> = ({number}) => {
   return (
     <View>
-      <Image
+      {/* <Image
         source={{uri: `https://picsum.photos/id/${number}/200/300`}}
+        style={{height: 400, width: '100%'}}
+      /> */}
+      <FadeInImage
+        uri={`https://picsum.photos/id/${number}/200/300`}
         style={{height: 400, width: '100%'}}
       />
     </View>
