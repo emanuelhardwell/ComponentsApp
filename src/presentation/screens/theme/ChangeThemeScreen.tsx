@@ -19,7 +19,9 @@ export const ChangeThemeScreen = () => {
       <Button text="Dark" onPress={() => setTheme('dark')} />
 
       <View style={{height: 20}} />
-      <Text>{JSON.stringify(colors, null, 2)}</Text>
+      <Text style={{color: colors.text}}>
+        {JSON.stringify(colors, null, 2)}
+      </Text>
     </CustomView>
   );
 };
