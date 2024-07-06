@@ -1,6 +1,8 @@
-import {Animated, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Animated, StyleSheet} from 'react-native';
 import {colors} from '../../../config/theme/theme';
 import {useAnimation} from '../../hooks/useAnimation';
+import {CustomView} from '../../components/ui/CustomView';
+import {Button} from '../../components/ui/Button';
 
 export const Animation101Screen = () => {
   const {
@@ -12,25 +14,27 @@ export const Animation101Screen = () => {
   } = useAnimation();
 
   return (
-    <View style={styles.container}>
+    <CustomView style={{...styles.container}}>
       <Animated.View
         style={[
           styles.boxPurple,
           {opacity: animatedOpacity, transform: [{translateY: animatedTop}]},
         ]}
       />
-      <Pressable
+      <Button
+        text="FadeIn"
         onPress={() => {
           fadeIn({});
           startMovingTopAtBottomPosition({initialPosition: -200});
         }}
-        style={{marginTop: 10}}>
-        <Text>FadeIn</Text>
-      </Pressable>
-      <Pressable onPress={() => fadeOut({})} style={{marginTop: 10}}>
-        <Text>FadeOut</Text>
-      </Pressable>
-    </View>
+        style={{marginTop: 10}}
+      />
+      <Button
+        text="FadeOut"
+        onPress={() => fadeOut({})}
+        style={{marginTop: 10}}
+      />
+    </CustomView>
   );
 };
 
