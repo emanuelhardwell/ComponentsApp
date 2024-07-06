@@ -1,4 +1,4 @@
-import {SectionList, Text, useWindowDimensions} from 'react-native';
+import {SectionList, useWindowDimensions} from 'react-native';
 import {CustomView} from '../../components/ui/CustomView';
 import {Title} from '../../components/ui/Title';
 import {globalStyles} from '../../../config/theme/theme';
@@ -12,24 +12,26 @@ export const CustomSectionListScreen = () => {
   const {top} = useSafeAreaInsets();
 
   return (
-    <CustomView style={{...globalStyles.globalMargin, marginBottom: 10}}>
+    <CustomView style={{...globalStyles.globalMargin, paddingBottom: 10}}>
       <Title text="CustomSectionListScreen" safe />
       <Card>
         <SectionList
           sections={heroes}
-          renderItem={({item}) => <Text> {item} </Text>}
+          renderItem={({item}) => (
+            <Title style={{fontSize: 14, fontWeight: '400'}} text={item} />
+          )}
           keyExtractor={item => item}
           showsVerticalScrollIndicator={false}
           // ItemSeparatorComponent={Separator}
           renderSectionHeader={({section: {title}}) => (
-            <Title style={{color: 'blue', fontSize: 16}} text={title} />
+            <Title style={{fontSize: 16}} text={title} />
           )}
           stickySectionHeadersEnabled
           SectionSeparatorComponent={Separator}
-          ListHeaderComponent={<Title style={{color: 'green'}} text="Comics" />}
+          ListHeaderComponent={<Title text="Comics" />}
           ListFooterComponent={
             <Title
-              style={{color: 'blue', fontSize: 16}}
+              style={{fontSize: 16}}
               text={`N° de secciones ${heroes?.length}`}
             />
           }

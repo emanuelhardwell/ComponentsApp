@@ -1,6 +1,6 @@
-import {FC, PropsWithChildren} from 'react';
+import {FC, PropsWithChildren, useContext} from 'react';
 import {StyleProp, View, ViewStyle} from 'react-native';
-import {colors} from '../../../config/theme/theme';
+import {ThemeContext} from '../../context/ThemeContext';
 
 // Forma 2 de pedir el Children por Props
 interface CardProps extends PropsWithChildren {
@@ -8,6 +8,8 @@ interface CardProps extends PropsWithChildren {
 }
 
 export const Card: FC<CardProps> = ({style, children}) => {
+  const {colors} = useContext(ThemeContext);
+
   return (
     <View
       style={[
