@@ -12,6 +12,7 @@ import {ModalSmallScreen} from '../screens/modal/ModalSmallScreen';
 import {InfiniteScrollScreen} from '../screens/infinite-scroll/InfiniteScrollScreen';
 import {InfiniteScrollAsyncScreen} from '../screens/infinite-scroll/InfiniteScrollAsyncScreen';
 import {SlidesScreen} from '../screens/slides/SlidesScreen';
+import {ChangeThemeScreen} from '../screens/theme/ChangeThemeScreen';
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,7 @@ export const StackNavigator = () => {
         component={InfiniteScrollAsyncScreen}
       />
       <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
+      <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
     </Stack.Navigator>
   );
 };
