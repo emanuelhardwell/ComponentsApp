@@ -1,11 +1,13 @@
 import {Platform, RefreshControl, ScrollView} from 'react-native';
 import {CustomView} from '../../components/ui/CustomView';
-import {colors, globalStyles} from '../../../config/theme/theme';
+import {globalStyles} from '../../../config/theme/theme';
 import {Title} from '../../components/ui/Title';
-import {useState} from 'react';
+import {useContext, useState} from 'react';
+import {ThemeContext} from '../../context/ThemeContext';
 
 export const PullToRefreshScreen = () => {
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const {colors} = useContext(ThemeContext);
 
   const onRefresh = (): void => {
     setTimeout(() => {
@@ -25,16 +27,21 @@ export const PullToRefreshScreen = () => {
         />
       }
       style={[
-        Platform.OS === 'ios' && {
-          ...globalStyles.mainContainer,
-          ...globalStyles.globalMargin,
-        },
+        Platform.OS === 'ios'
+          ? {
+              ...globalStyles.mainContainer,
+              ...globalStyles.globalMargin,
+              backgroundColor: colors.background,
+            }
+          : {
+              backgroundColor: colors.background,
+            },
       ]}>
       {Platform.OS === 'ios' ? (
         <Title text="PullToRefreshScreen" safe />
       ) : (
         <CustomView style={globalStyles.globalMargin}>
-          <Title text="PullToRefreshScreen" safe style={{color: 'orange'}} />
+          <Title text="PullToRefreshScreen" safe />
         </CustomView>
       )}
     </ScrollView>
