@@ -39,38 +39,38 @@ export const globalStyles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: colors.text,
+    // color: colors.text,
   },
   subTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: colors.text,
+    // color: colors.text,
   },
   input: {
     // height: 40,
     margin: 10,
     padding: 10,
-    color: colors.text,
+    // color: colors.text,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: 'rgba(0, 0, 0, 0.3)',
   },
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.background,
+    // backgroundColor: colors.background,
   },
   globalMargin: {
     paddingHorizontal: 20,
     flex: 1,
   },
   btnPrimary: {
-    backgroundColor: colors.primary,
+    // backgroundColor: colors.primary,
     borderRadius: 10,
     padding: 10,
     alignItems: 'center',
   },
   btnPrimaryText: {
-    color: colors.text,
+    // color: colors.text,
     fontSize: 16,
   },
 });
