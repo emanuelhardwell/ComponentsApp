@@ -4,16 +4,19 @@ import {globalStyles} from '../../../config/theme/theme';
 import {Title} from '../../components/ui/Title';
 import {useContext, useState} from 'react';
 import {ThemeContext} from '../../context/ThemeContext';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const PullToRefreshScreen = () => {
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const {top} = useSafeAreaInsets();
   const {colors} = useContext(ThemeContext);
 
   const onRefresh = (): void => {
+    setIsRefreshing(true);
+
     setTimeout(() => {
-      setIsRefreshing(true);
-    }, 3000);
-    setIsRefreshing(false);
+      setIsRefreshing(false);
+    }, 5000);
   };
 
   return (
@@ -21,9 +24,11 @@ export const PullToRefreshScreen = () => {
       refreshControl={
         <RefreshControl
           refreshing={isRefreshing}
-          progressViewOffset={10}
+          progressViewOffset={top}
           colors={[colors.primary, 'red', 'orange', 'green', 'yellow']}
           onRefresh={onRefresh}
+          progressBackgroundColor={colors.cardBackground}
+          tintColor={colors.primary} // solo funciona en ios
         />
       }
       style={[
