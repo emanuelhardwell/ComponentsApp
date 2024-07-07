@@ -2,7 +2,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  Text,
   TextInput,
   View,
 } from 'react-native';
@@ -62,10 +61,22 @@ export const TextInputScreen = () => {
           <View style={{marginVertical: 10}} />
 
           <Card>
-            <Text>{JSON.stringify(form, null, 2)}</Text>
-            <Text>{JSON.stringify(form, null, 2)}</Text>
-            <Text>{JSON.stringify(form, null, 2)}</Text>
-            <Text>{JSON.stringify(form, null, 2)}</Text>
+            <Title
+              style={{fontSize: 16, fontWeight: 'ultralight'}}
+              text={JSON.stringify(form, null, 2)}
+            />
+            <Title
+              style={{fontSize: 16, fontWeight: 'ultralight'}}
+              text={JSON.stringify(form, null, 2)}
+            />
+            <Title
+              style={{fontSize: 16, fontWeight: 'ultralight'}}
+              text={JSON.stringify(form, null, 2)}
+            />
+            <Title
+              style={{fontSize: 16, fontWeight: 'ultralight'}}
+              text={JSON.stringify(form, null, 2)}
+            />
           </Card>
 
           <View style={{marginVertical: 5}} />
