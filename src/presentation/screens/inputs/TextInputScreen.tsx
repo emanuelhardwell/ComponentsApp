@@ -1,15 +1,10 @@
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  TextInput,
-  View,
-} from 'react-native';
+import {KeyboardAvoidingView, Platform, ScrollView, View} from 'react-native';
 import {CustomView} from '../../components/ui/CustomView';
 import {globalStyles} from '../../../config/theme/theme';
 import {Title} from '../../components/ui/Title';
 import {Card} from '../../components/ui/Card';
 import {useState} from 'react';
+import {CustomTextInput} from '../../components/ui/CustomTextInput';
 
 export const TextInputScreen = () => {
   const [form, setForm] = useState({
@@ -30,17 +25,14 @@ export const TextInputScreen = () => {
         <CustomView style={globalStyles.globalMargin}>
           <Title text="TextInputScreen" safe />
           <Card>
-            {/* TextInput por defecto no trae ningun estilo */}
-            <TextInput
-              style={globalStyles.input}
+            <CustomTextInput
               placeholder="Nombre"
               autoCapitalize="words"
               autoCorrect={false}
               onChangeText={value => setForm({...form, name: value})}
             />
 
-            <TextInput
-              style={globalStyles.input}
+            <CustomTextInput
               placeholder="Email"
               autoCapitalize="words"
               autoCorrect={false}
@@ -48,8 +40,7 @@ export const TextInputScreen = () => {
               onChangeText={value => setForm({...form, email: value})}
             />
 
-            <TextInput
-              style={globalStyles.input}
+            <CustomTextInput
               placeholder="Number phone"
               autoCapitalize="words"
               autoCorrect={false}
@@ -82,8 +73,7 @@ export const TextInputScreen = () => {
           <View style={{marginVertical: 5}} />
 
           <Card>
-            <TextInput
-              style={globalStyles.input}
+            <CustomTextInput
               placeholder="Number phone"
               autoCapitalize="words"
               autoCorrect={false}
