@@ -1,6 +1,6 @@
-import {FC} from 'react';
+import {FC, useContext} from 'react';
 import {Platform, StyleSheet, Switch, Text, View} from 'react-native';
-import {colors} from '../../../config/theme/theme';
+import {ThemeContext} from '../../context/ThemeContext';
 
 interface CustomSwitchProps {
   text?: string;
@@ -13,6 +13,8 @@ export const CustomSwitch: FC<CustomSwitchProps> = ({
   isOn,
   onValueChange,
 }) => {
+  const {colors} = useContext(ThemeContext);
+
   return (
     <View style={styles.container}>
       {text && <Text style={{color: colors.text}}>{text}</Text>}

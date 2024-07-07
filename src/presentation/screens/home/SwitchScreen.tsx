@@ -14,7 +14,7 @@ export const SwitchScreen = () => {
   const {isOnAngry, isOnHappy, isOnHungry} = state;
 
   return (
-    <CustomView style={{marginTop: 20, marginHorizontal: 20}}>
+    <CustomView style={{paddingTop: 20, paddingHorizontal: 20}}>
       <Card>
         <CustomSwitch
           isOn={isOnHappy}
