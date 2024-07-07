@@ -1,15 +1,11 @@
-import {
-  FlatList,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  View,
-} from 'react-native';
-import {colors} from '../../../config/theme/theme';
+import {FlatList, NativeScrollEvent, NativeSyntheticEvent} from 'react-native';
+
 import {items} from './data';
 import {SlideItem} from './SlideItem';
 import {Button} from '../../components/ui/Button';
 import {useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {CustomView} from '../../components/ui/CustomView';
 
 export const SlidesScreen = () => {
   const [slideIndex, setSlideIndex] = useState<number>(0);
@@ -30,7 +26,7 @@ export const SlidesScreen = () => {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: colors.background}}>
+    <CustomView style={{flex: 1}}>
       <FlatList
         data={items}
         renderItem={({item}) => <SlideItem imageInfo={item} />}
@@ -56,6 +52,6 @@ export const SlidesScreen = () => {
           style={{position: 'absolute', bottom: 60, right: 20}}
         />
       )}
-    </View>
+    </CustomView>
   );
 };

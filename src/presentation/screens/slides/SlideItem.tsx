@@ -19,7 +19,7 @@ export const SlideItem: FC<SlideItemProps> = ({imageInfo}) => {
         alignItems: 'center',
         backgroundColor: '#e7d2d2',
         borderRadius: 20,
-        marginVertical: 15,
+        marginVertical: 55,
         padding: 40,
         width: width,
       }}>

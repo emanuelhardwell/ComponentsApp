@@ -2,6 +2,7 @@ import {ActivityIndicator, FlatList, View} from 'react-native';
 import {Title} from '../../components/ui/Title';
 import {FC, useState} from 'react';
 import {FadeInImage} from '../../components/ui/FadeInImage';
+import { CustomView } from '../../components/ui/CustomView';
 
 export const InfiniteScrollAsyncScreen = () => {
   const [numbers, setNumbers] = useState<number[]>([0, 1, 2, 3, 4, 5]);
@@ -16,7 +17,7 @@ export const InfiniteScrollAsyncScreen = () => {
   };
 
   return (
-    <View>
+    <CustomView>
       <Title style={{textAlign: 'center'}} text="InfiniteScrollAsyncScreen" />
 
       <FlatList
@@ -27,7 +28,7 @@ export const InfiniteScrollAsyncScreen = () => {
         onEndReachedThreshold={0.6}
         ListFooterComponent={<FooterComponent />}
       />
-    </View>
+    </CustomView>
   );
 };
 

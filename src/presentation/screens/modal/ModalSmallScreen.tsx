@@ -1,10 +1,12 @@
 import {useState} from 'react';
 import {Alert, Modal, Pressable, StyleSheet, Text, View} from 'react-native';
+import {CustomView} from '../../components/ui/CustomView';
 
 export const ModalSmallScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <View style={styles.centeredView}>
+    <CustomView style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -34,7 +36,7 @@ export const ModalSmallScreen = () => {
         onPress={() => setModalVisible(true)}>
         <Text style={styles.textStyle}>Show Modal</Text>
       </Pressable>
-    </View>
+    </CustomView>
   );
 };
 
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    // marginTop: 22,
   },
   modalView: {
     margin: 20,
