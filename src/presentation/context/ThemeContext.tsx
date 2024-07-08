@@ -1,5 +1,6 @@
+import {useColorScheme} from 'react-native';
 import {darkColors, lightColors, ThemeColors} from '../../config/theme/theme';
-import {createContext, PropsWithChildren, useState} from 'react';
+import {createContext, PropsWithChildren, useEffect, useState} from 'react';
 
 type ThemeColor = 'light' | 'dark';
 
@@ -14,6 +15,16 @@ export const ThemeContext = createContext({} as ThemeContextProps);
 
 export const ThemeProvider = ({children}: PropsWithChildren) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeColor>('light');
+  // aveces este HOOK no funciona bien cuando la app esta en segundo plano
+  const colorScheme = useColorScheme();
+
+  useEffect(() => {
+    if (colorScheme === 'light') {
+      setCurrentTheme('light');
+    } else {
+      setCurrentTheme('dark');
+    }
+  }, [colorScheme]);
 
   const setTheme = (theme: ThemeColor): void => {
     setCurrentTheme(theme);
