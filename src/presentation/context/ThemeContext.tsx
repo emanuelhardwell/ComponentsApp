@@ -6,6 +6,7 @@ type ThemeColor = 'light' | 'dark';
 interface ThemeContextProps {
   colors: ThemeColors;
   currentTheme: ThemeColor;
+  isDark?: boolean;
   setTheme: (theme: ThemeColor) => void;
 }
 
@@ -21,6 +22,7 @@ export const ThemeProvider = ({children}: PropsWithChildren) => {
   return (
     <ThemeContext.Provider
       value={{
+        isDark: currentTheme !== 'light',
         colors: currentTheme === 'light' ? lightColors : darkColors,
         currentTheme: currentTheme,
         setTheme: theme => setTheme(theme),
